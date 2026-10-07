@@ -1,0 +1,17 @@
+{
+  "name": "hris",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HRIS BMC - dev launcher (backend + frontend + agent-monitor)",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:ui": "node scripts/dev.mjs --ui-only",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:monitor": "npm --prefix agent-monitor run dev",
+    "dev:opencode": "opencode serve --port 4180 --cors http://localhost:5180"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
