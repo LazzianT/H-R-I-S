@@ -28,4 +28,5 @@ export const config = {
     token: process.env.WA_TOKEN || '',
   },
   uploadDir: process.env.UPLOAD_DIR || './uploads',
+  publicDir: process.env.PUBLIC_DIR || './public',
 };

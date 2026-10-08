@@ -23,6 +23,13 @@ app.get('/health', (_req, res) => res.json({ ok: true }));
 // Auth publik (login), sisanya wajib token.
 app.use('/api', router());
 
+// SPA statis (hasil build frontend) — hanya ada di image produksi.
+const publicDir = path.resolve(config.publicDir);
+if (fs.existsSync(publicDir)) {
+  app.use(express.static(publicDir));
+  app.get(/^\/(?!api|uploads).*/, (_req, res) => res.sendFile(path.join(publicDir, 'index.html')));
+}
+
 app.use(notFound);
 app.use(errorHandler);
 
